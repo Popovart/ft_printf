@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 14:33:55 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/05 20:22:11 by dmitrii          ###   ########.fr       */
+/*   Created: 2024/08/20 15:25:26 by dmitrypopov       #+#    #+#             */
+/*   Updated: 2024/10/05 19:58:36 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	main(void)
+size_t	ft_strlen(const char *str)
 {
-	printf("%d\n", ft_printf("%c %d %-4s\n", 'c', 5, "lol"));
-	printf("================\n");
-	printf("%d\n", printf("%c %d %-4s\n", 'c', 5, "lol"));
-	return (0);
-}
+	size_t	i;
 
-// ft_printf("word %d text", 10);
+	i = 0;
+	while (str[i])
+	{
+		i++;
+	}
+	return (i);
+}

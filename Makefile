@@ -3,7 +3,7 @@ NAME = libftprintf.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = ft_printf.c ft_putnbr_fd.c ft_printf_format.c ft_numlen.c ft_isdigit.c
+SRC = ft_printf.c ft_putnbr_fd.c ft_printf_format.c ft_numlen.c ft_isdigit.c ft_strlen.c ft_putstr_fd.c
 MAIN_SRC = main.c
 
 OBJ = $(SRC:.c=.o)

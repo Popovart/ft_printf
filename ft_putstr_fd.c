@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 14:33:55 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/05 20:22:11 by dmitrii          ###   ########.fr       */
+/*   Created: 2024/09/27 16:21:57 by dmitrypopov       #+#    #+#             */
+/*   Updated: 2024/10/05 20:20:01 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	main(void)
+void	ft_putstr_fd(char *s, int fd)
 {
-	printf("%d\n", ft_printf("%c %d %-4s\n", 'c', 5, "lol"));
-	printf("================\n");
-	printf("%d\n", printf("%c %d %-4s\n", 'c', 5, "lol"));
-	return (0);
+	while (*s)
+	{
+		write(fd, s, 1);
+		s++;
+	}
 }
-
-// ft_printf("word %d text", 10);
