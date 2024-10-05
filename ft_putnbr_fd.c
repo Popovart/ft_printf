@@ -6,7 +6,7 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 16:28:52 by dmitrypopov       #+#    #+#             */
-/*   Updated: 2024/10/05 14:47:01 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/05 19:07:06 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,17 @@ void	ft_putnbr_rec_fd(int n, int fd)
 	}
 }
 
-int	ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	if (n == -2147483648)
 	{
 		write(fd, "-2147483648", 11);
-		return (11);
+		return ;
 	}
 	if (n == 0)
 	{
 		write(fd, "0", 1);
-		return (1);
+		return ;
 	}
 	if (n < 0)
 	{
@@ -46,5 +46,5 @@ int	ft_putnbr_fd(int n, int fd)
 		n = -n;
 	}
 	ft_putnbr_rec_fd(n, fd);
-	return (ft_numlen(n));
+	return ;
 }

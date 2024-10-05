@@ -6,7 +6,7 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 19:46:30 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/05 16:05:42 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/05 18:39:41 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_printf(const char *fmt, ...)
 		}
 		else
 		{
-			count = write(1, fmt_ptr, 1);
+			count += write(1, fmt_ptr, 1);
 		}
 		fmt_ptr++;
 	}

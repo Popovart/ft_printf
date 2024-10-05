@@ -6,7 +6,7 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 14:33:55 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/05 16:21:02 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/05 19:18:41 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	main(void)
 {
-	ft_printf("%-5dsadsad\n", 10);
+	printf("%d\n", ft_printf("%0d %dsadsad\n", 10, 5));
 	printf("================\n");
-	printf("%-5dsadsad\n", 10);
+	printf("%d\n", printf("%0d %dsadsad\n", 10, 5));
 	return (0);
 }
 
