@@ -6,7 +6,7 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 13:42:41 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/06 20:48:14 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/06 21:14:17 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,8 @@ int	ft_print_decimal_type(int decimal_num, t_flags flags)
 {
 	int	count;
 
+	if (flags.sign && decimal_num > 0)
+		flags.min_width--;
 	count = 0;
 	if (flags.minus_flag)
 	{
@@ -129,8 +131,6 @@ int	ft_print_decimal_type(int decimal_num, t_flags flags)
 	}
 	else
 	{
-		if (flags.sign && decimal_num > 0)
-			flags.min_width--;
 		count += ft_align(' ', flags.min_width);
 		count += ft_add_sign(flags.sign, decimal_num);
 		ft_putnbr_fd(decimal_num, 1);
