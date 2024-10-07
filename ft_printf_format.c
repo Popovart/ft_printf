@@ -6,7 +6,7 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 13:42:41 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/06 21:14:17 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/07 16:06:05 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,15 @@ void	init_flags(t_flags *flags)
 	flags->hash_flag = 0;
 }
 
-void print_flags(const t_flags *flags)
+void	print_flags(const t_flags *flags)
 {
-    printf("Flags structure:\n");
-    printf("minus_flag: %d\n", flags->minus_flag);
-    printf("zero_flag: %d\n", flags->zero_flag);
-    printf("min_width: %d\n", flags->min_width);
-    printf("sign: %c\n", flags->sign ? flags->sign : 'N'); 
-    printf("precision: %d\n", flags->precision);
-    printf("hash_flag: %d\n", flags->hash_flag);
+	printf("Flags structure:\n");
+	printf("minus_flag: %d\n", flags->minus_flag);
+	printf("zero_flag: %d\n", flags->zero_flag);
+	printf("min_width: %d\n", flags->min_width);
+	printf("sign: %c\n", flags->sign ? flags->sign : 'N');
+	printf("precision: %d\n", flags->precision);
+	printf("hash_flag: %d\n", flags->hash_flag);
 }
 
 int	ft_align(char c, int min_width)
@@ -67,10 +67,16 @@ int	ft_isflag(char c)
 	return (0);
 }
 
-int	ft_process_precision(char **fmt_ptr, int *zero_flag, int *shift)
+int	ft_process_precision(char **fmt_ptr, int *zero_flag, int *min_width,
+		int *shift)
 {
+	int	precision;
+
+	precision = ft_extract_num(fmt_ptr, shift);
+	if (*min_width < precision)
+		*min_width = precision;
 	*zero_flag = 0;
-	return (ft_extract_num(fmt_ptr, shift));
+	return (precision);
 }
 
 void	ft_process_flags(char **fmt_ptr, t_flags *flags, int *shift)
@@ -109,36 +115,35 @@ int	ft_add_sign(char sign, int decimal_num)
 		return (0);
 }
 
-// передача структуры занимает больше времени и памяти, поэтому нужно передавать указатель на структуру
-int	ft_print_decimal_type(int decimal_num, t_flags flags)
+int	ft_print_decimal_type(int decimal_num, t_flags *flags, int count)
 {
-	int	count;
-
-	if (flags.sign && decimal_num > 0)
-		flags.min_width--;
-	count = 0;
-	if (flags.minus_flag)
+	if (flags->sign && decimal_num > 0)
 	{
-		ft_add_sign(flags.sign, decimal_num);
-		ft_putnbr_fd(decimal_num, 1);
-		count += ft_align(' ', flags.min_width);
+		flags->min_width--;
+		count++;
 	}
-	else if (flags.zero_flag || flags.precision != -1)
+	if (flags->minus_flag)
 	{
-		ft_add_sign(flags.sign, decimal_num);
-		count += ft_align('0', flags.min_width);
+		ft_add_sign(flags->sign, decimal_num);
+		ft_putnbr_fd(decimal_num, 1);
+		count += ft_align(' ', flags->min_width);
+	}
+	else if (flags->zero_flag || flags->precision != -1)
+	{
+		ft_add_sign(flags->sign, decimal_num);
+		count += ft_align('0', flags->min_width);
 		ft_putnbr_fd(decimal_num, 1);
 	}
 	else
 	{
-		count += ft_align(' ', flags.min_width);
-		count += ft_add_sign(flags.sign, decimal_num);
+		count += ft_align(' ', flags->min_width);
+		count += ft_add_sign(flags->sign, decimal_num);
 		ft_putnbr_fd(decimal_num, 1);
 	}
 	return (count);
 }
 
-int	ft_process_decimal_type(va_list args, t_flags flags)
+int	ft_process_decimal_type(va_list args, t_flags *flags)
 {
 	int	count;
 	int	decimal_num;
@@ -147,8 +152,8 @@ int	ft_process_decimal_type(va_list args, t_flags flags)
 	decimal_num = va_arg(args, int);
 	num_len = ft_numlen(decimal_num);
 	count = num_len;
-	flags.min_width = ft_recalculate_minwidth(flags.min_width, num_len);
-	count += ft_print_decimal_type(decimal_num, flags);
+	flags->min_width = ft_recalculate_minwidth(flags->min_width, num_len);
+	count = ft_print_decimal_type(decimal_num, flags, count);
 	return (count);
 }
 
@@ -231,13 +236,13 @@ int	ft_printf_format(char *fmt_ptr, va_list args, int *count)
 		fmt_ptr++;
 		shift++;
 		flags.precision = ft_process_precision(&fmt_ptr, &flags.zero_flag,
-				&shift);
+				&flags.min_width, &shift);
 	}
 	if (*fmt_ptr == 'd' || *fmt_ptr == 'i')
-		*count += ft_process_decimal_type(args, flags);
+		*count += ft_process_decimal_type(args, &flags);
 	else if (*fmt_ptr == 'c')
 		*count += ft_char_format(args);
 	// else if (*fmt_ptr == 's')
-		// *count += ft_string_format(args, flags.min_width, align_format);
+	// *count += ft_string_format(args, flags.min_width, align_format);
 	return (shift);
 }
