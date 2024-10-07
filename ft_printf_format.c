@@ -6,7 +6,7 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 13:42:41 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/07 20:06:51 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/07 21:52:29 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,6 @@ void	ft_process_flags(char **fmt_ptr, t_flags *flags, int *shift)
 
 int	ft_recalculate_flagnum(int flagnum, const int num_len)
 {
-	printf("lst size = %d\n", num_len);
 	if (flagnum > num_len)
 		flagnum -= num_len;
 	else
@@ -156,6 +155,8 @@ int	ft_add_signtolst(t_list **lst, const char sign)
 	{
 		if (sign == '+')
 			node = ft_lstnew(ft_strdup("+"));
+		else if (sign == ' ')
+			node = ft_lstnew(ft_strdup(" "));
 		else if (sign == '-')
 			node = ft_lstnew(ft_strdup("-"));
 		if (!node)
@@ -169,8 +170,6 @@ int	ft_add_zerosandsigntolst(t_list **lst, int flagnum, const char sign)
 {
 	t_list	*node;
 
-	if (sign)
-		flagnum--;
 	flagnum = ft_recalculate_flagnum(flagnum, ft_lstsize(*lst));
 	while (flagnum-- > 0)
 	{
@@ -189,10 +188,15 @@ int	ft_add_zerosandsigntolst(t_list **lst, int flagnum, const char sign)
 //	but now I omit it
 int	ft_process_decimal_type(va_list args, t_flags *flags)
 {
-	int	count;
-	int	decimal_num;
+	int		count;
+	long	decimal_num;
 
 	decimal_num = va_arg(args, int);
+	if (decimal_num < 0)
+	{
+		flags->sign = '-';
+		decimal_num *= -1;
+	}
 	ft_add_numtolst(&flags->result, ft_itoa(decimal_num));
 	if (flags->precision != -1)
 		ft_add_zerosandsigntolst(&flags->result, flags->precision, flags->sign);
