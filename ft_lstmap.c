@@ -1,43 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/28 19:46:30 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/07 17:40:43 by dmitrii          ###   ########.fr       */
+/*   Created: 2024/09/28 13:21:54 by dmitrii           #+#    #+#             */
+/*   Updated: 2024/10/07 16:16:16 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *fmt, ...)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	va_list	args;
-	char	*fmt_ptr;
-	int		count;
+	t_list	*new_lst;
+	t_list	*new_node;
+	void	*content;
 
-	// I don't know what it must return actually in this case
-	if (!fmt)
-		return (-1);
-	va_start(args, fmt);
-	fmt_ptr = (char *)fmt;
-	count = 0;
-	while (*fmt_ptr)
+	if (!lst || !f)
+		return (NULL);
+	new_lst = NULL;
+	while (lst != NULL)
 	{
-		if (*fmt_ptr == '%')
+		content = f(lst->content);
+		new_node = ft_lstnew(content);
+		if (!new_node)
 		{
-			fmt_ptr += ft_printf_format(fmt_ptr + 1, args, &count) + 1;
+			del(content);
+			ft_lstclear(&new_lst, del);
+			return (NULL);
 		}
-		else
-		{
-			count += write(1, fmt_ptr, 1);
-		}
-		fmt_ptr++;
+		ft_lstadd_back(&new_lst, new_node);
+		lst = lst->next;
 	}
-	va_end(args);
-	return (count);
+	return (new_lst);
 }
-
-// handle case %% -> %

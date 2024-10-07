@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_numlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 13:38:16 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/05 19:16:15 by dmitrii          ###   ########.fr       */
+/*   Created: 2024/09/27 17:34:22 by dmitrypopov       #+#    #+#             */
+/*   Updated: 2024/10/07 16:16:13 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_numlen(int n)
-{
-	int	len;
+#include "ft_printf.h"
 
-	len = 1;
-	if (n < 0)
-		len++;
-	while (n / 10 != 0)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	if (!lst)
+		return ;
+	while (lst != NULL)
 	{
-		len++;
-		n /= 10;
+		f(lst->content);
+		lst = lst->next;
 	}
-	return (len);
 }
