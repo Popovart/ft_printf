@@ -6,7 +6,7 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 13:16:00 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/08 14:53:08 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/08 15:20:54 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	init_flags(t_flags *flags)
 	flags->minus_flag = 0;
 	flags->zero_flag = 0;
 	flags->min_width = -1;
-	flags->sign = '\0';
+	flags->sign = "\0";
 	flags->precision = -1;
 	flags->hash_flag = 0;
 	flags->result = NULL;
@@ -36,7 +36,7 @@ void	print_flags(t_flags *flags)
 	printf("minus_flag: %d\n", flags->minus_flag);
 	printf("zero_flag: %d\n", flags->zero_flag);
 	printf("min_width: %d\n", flags->min_width);
-	printf("sign: %c\n", flags->sign ? flags->sign : 'N');
+	printf("sign: %s\n", flags->sign ? flags->sign : "N");
 	printf("precision: %d\n", flags->precision);
 	printf("hash_flag: %d\n", flags->hash_flag);
 	printf("result list\n");
@@ -54,10 +54,10 @@ void	ft_process_flags(char **fmt_ptr, t_flags *flags, int *shift)
 			flags->minus_flag = 1;
 		else if (**fmt_ptr == '0' && !flags->minus_flag && !flags->zero_flag)
 			flags->zero_flag = 1;
-		else if (**fmt_ptr == '+' && flags->sign != '+')
-			flags->sign = '+';
+		else if (**fmt_ptr == '+' && flags->sign[0] != '+')
+			flags->sign = "+";
 		else if (**fmt_ptr == ' ' && !flags->sign)
-			flags->sign = ' ';
+			flags->sign = " ";
 		else if (**fmt_ptr == '#')
 			flags->hash_flag = 1;
 		(*fmt_ptr)++;

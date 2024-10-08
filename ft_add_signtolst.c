@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_add_strtolst.c                                  :+:      :+:    :+:   */
+/*   ft_add_signtolst.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 13:32:42 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/08 16:31:59 by dmitrii          ###   ########.fr       */
+/*   Created: 2024/10/08 16:23:34 by dmitrii           #+#    #+#             */
+/*   Updated: 2024/10/08 16:36:17 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-// void (*del)(void *)
-// void	ft_lstadd_back(t_list **lst, t_list *new)
 
-int	ft_add_strtolst(t_list **lst, char *s, void(*add_func)(t_list **, t_list *))
+int	ft_add_signtolst(t_list **lst, char *sign)
 {
-	t_list	*node;
-
-	while (*s)
-	{
-		node = ft_lstnew(s++);
-		if (!node)
-			return (ft_lstclear(lst, &free), -1);
-		add_func(lst, node);
-	}
-	return (0);
+	return (ft_add_strtolst(lst, sign, &ft_lstadd_front));
 }

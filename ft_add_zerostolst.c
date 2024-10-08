@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_add_strtolst.c                                  :+:      :+:    :+:   */
+/*   ft_add_zerostolst.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 13:32:42 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/08 16:31:59 by dmitrii          ###   ########.fr       */
+/*   Created: 2024/10/08 16:24:23 by dmitrii           #+#    #+#             */
+/*   Updated: 2024/10/08 16:24:42 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-// void (*del)(void *)
-// void	ft_lstadd_back(t_list **lst, t_list *new)
 
-int	ft_add_strtolst(t_list **lst, char *s, void(*add_func)(t_list **, t_list *))
+int	ft_add_zerostolst(t_list **lst, int flagnum, char *sign)
 {
 	t_list	*node;
+	int		lst_len;
 
-	while (*s)
+	lst_len = ft_lstsize(*lst);
+	if (sign[0] == '-')
+		lst_len++;
+	flagnum = ft_recalculate_flagnum(flagnum, lst_len);
+	while (flagnum-- > 0)
 	{
-		node = ft_lstnew(s++);
+		node = ft_lstnew(ft_strdup("0"));
 		if (!node)
-			return (ft_lstclear(lst, &free), -1);
-		add_func(lst, node);
+			return (ft_lstclear(lst, &free), 0);
+		ft_lstadd_front(lst, node);
 	}
-	return (0);
+	return (1);
 }

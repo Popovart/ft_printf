@@ -6,7 +6,7 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 14:33:55 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/08 14:33:44 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/08 16:20:53 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,19 @@ int	main(void)
 	//printf("%d\n", ft_printf("%142.132d\n", 5)); //OK
 	//printf("%d\n", ft_printf("%0+2d\n", -5)); //OK
 	printf("================\n");
-	//printf("%d\n", printf("%-+2d\n", 5)); // OK
+	//printf("%d\n", printf("%0+2d\n", 5)); // OK
 	//printf("%d\n", printf("%- 142.132d\n", 5)); //OK
 	//printf("%d\n", printf("%142.132d\n", 5)); //OK
 	//printf("%d\n", printf("%0+2d\n", -5)); //OK
 
 	// strs
 	// printf("%d\n", ft_printf("%12.12s %d\n", "lol", 12)); 
-	printf("================\n");
-	printf("%d\n", printf("%0#4X\n", 12)); 
+	//printf("================\n");
+
+	// hex
+	printf("%d\n", ft_printf("%#x\n", 12)); 
+	//printf("================\n");
+	printf("%d\n", printf("%#x\n", 12)); 
 	return (0);
 }
 

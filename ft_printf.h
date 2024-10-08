@@ -6,7 +6,7 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 19:45:05 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/08 13:57:18 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/08 16:33:06 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_flags
 	int				minus_flag;
 	int				zero_flag;
 	int				min_width;
-	char			sign;
+	char			*sign;
 	int				precision;
 	int				hash_flag;
 	struct s_list	*result;
@@ -53,9 +53,14 @@ void				ft_process_flags(char **fmt_ptr, t_flags *flags,
 						int *shift);
 int					ft_recalculate_flagnum(int flagnum, const int num_len);
 int					ft_process_decimal_type(va_list args, t_flags *flags);
-int					ft_add_strtolst(t_list **lst, char *s);
+int					ft_add_strtolst(t_list **lst, char *s,
+						void (*add_func)(t_list **, t_list *));
 int					ft_print_type_with_align(t_flags *flags);
 int					ft_process_string_type(va_list args, t_flags *flags);
+int					ft_process_hex_type(va_list args, t_flags *flags,
+						const int is_upper);
+int					ft_add_signtolst(t_list **lst, char *sign);
+int					ft_add_zerostolst(t_list **lst, int flagnum, char *sign);
 
 void				ft_putnbr_fd(int n, int fd);
 int					ft_isdigit(int c);
