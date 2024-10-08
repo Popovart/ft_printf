@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_format_output.c                                 :+:      :+:    :+:   */
+/*   ft_format_output_and_print.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 16:39:48 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/08 16:40:48 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/08 18:32:03 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_format_output_and_print(t_flags *flags)
 {
 	int	count;
-
+	
 	if (flags->precision != -1)
 		ft_add_zerostolst(&flags->result, flags->precision, flags->sign);
 	else if (flags->zero_flag)

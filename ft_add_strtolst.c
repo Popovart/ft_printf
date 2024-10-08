@@ -6,7 +6,7 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 13:32:42 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/08 16:31:59 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/08 18:30:38 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int	ft_add_strtolst(t_list **lst, char *s, void(*add_func)(t_list **, t_list *))
 {
 	t_list	*node;
-
+	
 	while (*s)
 	{
 		node = ft_lstnew(s++);

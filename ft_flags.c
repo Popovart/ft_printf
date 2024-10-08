@@ -6,7 +6,7 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 13:16:00 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/08 15:20:54 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/08 18:35:34 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	ft_process_flags(char **fmt_ptr, t_flags *flags, int *shift)
 			flags->zero_flag = 1;
 		else if (**fmt_ptr == '+' && flags->sign[0] != '+')
 			flags->sign = "+";
-		else if (**fmt_ptr == ' ' && !flags->sign)
+		else if (**fmt_ptr == ' ' && !*flags->sign)
 			flags->sign = " ";
 		else if (**fmt_ptr == '#')
 			flags->hash_flag = 1;

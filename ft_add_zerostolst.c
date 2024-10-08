@@ -6,7 +6,7 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 16:24:23 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/08 16:24:42 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/08 18:31:37 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_add_zerostolst(t_list **lst, int flagnum, char *sign)
 {
 	t_list	*node;
 	int		lst_len;
-
+	
 	lst_len = ft_lstsize(*lst);
 	if (sign[0] == '-')
 		lst_len++;
