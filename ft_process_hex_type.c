@@ -6,7 +6,7 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:25:17 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/08 16:36:37 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/08 16:42:53 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ int	ft_add_hextolst(t_list **lst, unsigned int num, const int is_upper)
 // нужно перетащить часть кода в отдельные функции, а то там одна и таже логика
 int	ft_process_hex_type(va_list args, t_flags *flags, const int is_upper)
 {
-	int		count;
-	int		num;
-    
+	int	count;
+	int	num;
+
 	num = va_arg(args, unsigned int);
 	if (ft_add_hextolst(&flags->result, num, is_upper) == -1)
 		return (-1);
@@ -55,16 +55,6 @@ int	ft_process_hex_type(va_list args, t_flags *flags, const int is_upper)
 		else
 			flags->sign = "x0";
 	}
-	if (flags->precision != -1)
-		ft_add_zerostolst(&flags->result, flags->precision, flags->sign);
-	else if (flags->zero_flag)
-	{
-		ft_add_zerostolst(&flags->result, flags->min_width, flags->sign);
-		flags->min_width = 0;
-	}
-	ft_add_signtolst(&flags->result, flags->sign);
-	flags->min_width = ft_recalculate_flagnum(flags->min_width,
-			ft_lstsize(flags->result));
-	count = ft_print_type_with_align(flags);
+	count = ft_format_output_and_print(flags);
 	return (count);
 }
