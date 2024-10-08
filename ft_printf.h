@@ -6,7 +6,7 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 19:45:05 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/07 21:37:28 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/08 13:57:18 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,21 @@ typedef struct s_list
 int					ft_printf(const char *fmt, ...);
 int					ft_numlen(int n);
 int					ft_printf_format(char *fmt_ptr, va_list args, int *count);
+void				ft_putlstchar(void *c);
+int					ft_align(char c, int min_width);
+int					ft_extract_num(char **fmt_ptr, int *shift);
+void				init_flags(t_flags *flags);
+void				print_flags(t_flags *flags);
+int					ft_isflag(char c);
+int					ft_process_precision(char **fmt_ptr, int *zero_flag,
+						int *shift);
+void				ft_process_flags(char **fmt_ptr, t_flags *flags,
+						int *shift);
+int					ft_recalculate_flagnum(int flagnum, const int num_len);
+int					ft_process_decimal_type(va_list args, t_flags *flags);
+int					ft_add_strtolst(t_list **lst, char *s);
+int					ft_print_type_with_align(t_flags *flags);
+int					ft_process_string_type(va_list args, t_flags *flags);
 
 void				ft_putnbr_fd(int n, int fd);
 int					ft_isdigit(int c);
