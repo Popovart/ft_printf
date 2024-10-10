@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmitrypopov <dmitrypopov@student.42.fr>    +#+  +:+       +#+        */
+/*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 14:33:55 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/10 15:15:32 by dmitrypopov      ###   ########.fr       */
+/*   Updated: 2024/10/10 21:23:24 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(void)
 	//printf("%d\n", ft_printf("%- 142.132d\n", 5)); //OK
 	//printf("%d\n", ft_printf("%142.132d\n", 5)); //OK
 	//printf("%d\n", ft_printf("%0+2d\n", -5)); //OK
-	printf("================\n");
+	//printf("================\n");
 	//printf("%d\n", printf("% d\n", 5)); //OK
 	//printf("%d\n", printf("%- 3.2d\n", 5)); //OK
 	//printf("%d\n", printf("%0+2d\n", 5)); // OK
@@ -47,8 +47,15 @@ int	main(void)
 	// ptr
 	//int x = 42;
 	//printf("%d\n", ft_printf("%25p\n", (void *)&x));
-	printf("================\n");
+	//printf("================\n");
 	//printf("%d\n", printf("%25p\n", (void *)&x));
+
+
+	printf("%d\n", ft_printf("%c %d %s %u %% %p\n", 'c', 5, "lol", -200, 0));
+	printf("================\n");
+	printf("%d\n", printf("%c %d %s %u %% %p\n", 'c', 5, "lol", -200, 0));
+
+
 	return (0);
 }
 

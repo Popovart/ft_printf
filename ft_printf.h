@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmitrypopov <dmitrypopov@student.42.fr>    +#+  +:+       +#+        */
+/*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 19:45:05 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/10 15:11:42 by dmitrypopov      ###   ########.fr       */
+/*   Updated: 2024/10/10 21:03:20 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ int					ft_format_output_and_print(t_flags *flags);
 int					ft_add_hextolst(t_list **lst, uintptr_t num,
 						const int is_upper);
 int					ft_process_pointer_type(va_list args, t_flags *flags);
+int					ft_process_unsdecimal_type(va_list args, t_flags *flags);
+char				*ft_utoa(unsigned int n);
 
 void				ft_putnbr_fd(int n, int fd);
 int					ft_isdigit(int c);

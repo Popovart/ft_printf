@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_format.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmitrypopov <dmitrypopov@student.42.fr>    +#+  +:+       +#+        */
+/*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 13:42:41 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/10 14:47:57 by dmitrypopov      ###   ########.fr       */
+/*   Updated: 2024/10/10 20:52:38 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,7 @@ int	ft_printf_format(char *fmt_ptr, va_list args, int *count)
 		*count += ft_process_hex_type(args, &flags, ft_isupper(*fmt_ptr));
 	else if (*fmt_ptr == 'p')
 		*count += ft_process_pointer_type(args, &flags);
+	else if (*fmt_ptr == 'u')
+		*count += ft_process_unsdecimal_type(args, &flags);
 	return (shift);
 }

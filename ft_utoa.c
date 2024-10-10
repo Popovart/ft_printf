@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_utoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 19:29:15 by dmitrypopov       #+#    #+#             */
-/*   Updated: 2024/10/10 20:56:03 by dmitrii          ###   ########.fr       */
+/*   Created: 2024/10/10 21:02:38 by dmitrii           #+#    #+#             */
+/*   Updated: 2024/10/10 21:05:52 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_numlen(int n)
+unsigned int	ft_unsnumlen(unsigned int n)
 {
-	int	len;
+	unsigned int	len;
 
 	len = 1;
-	if (n < 0)
-		len++;
 	while (n / 10 != 0)
 	{
 		len++;
@@ -27,25 +25,20 @@ int	ft_numlen(int n)
 	return (len);
 }
 
-char	*ft_itoa(int n)
+char	*ft_utoa(unsigned int n)
 {
-	char	*str;
-	int		len;
-	long	nb;
+	char			*str;
+	unsigned int	len;
+	unsigned int	nb;
 
 	nb = n;
-	len = ft_numlen(nb);
+	len = ft_unsnumlen(nb);
 	str = (char *)malloc((len + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
 	str[len] = '\0';
 	if (nb == 0)
 		return (str[0] = '0', str);
-	if (nb < 0)
-	{
-		str[0] = '-';
-		nb = -nb;
-	}
 	while (len > 0 && nb >= 10)
 	{
 		str[--len] = (nb % 10) + '0';
@@ -54,26 +47,3 @@ char	*ft_itoa(int n)
 	str[--len] = nb + '0';
 	return (str);
 }
-
-// int	main(void)
-// {
-// 	char	*result;
-
-// 	result = ft_itoa(0);
-// 	printf("Result: %s\n", result);
-// 	free(result);
-
-// 	result = ft_itoa(-12345);
-// 	printf("Result: %s\n", result);
-// 	free(result);
-
-// 	result = ft_itoa(42);
-// 	printf("Result: %s\n", result);
-// 	free(result);
-
-// 	result = ft_itoa(-2147483648);
-// 	printf("Result: %s\n", result);
-// 	free(result);
-
-// 	return (0);
-// }

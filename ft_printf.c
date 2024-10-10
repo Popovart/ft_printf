@@ -6,7 +6,7 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 19:46:30 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/07 17:40:43 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/10 21:21:56 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,13 @@ int	ft_printf(const char *fmt, ...)
 	{
 		if (*fmt_ptr == '%')
 		{
-			fmt_ptr += ft_printf_format(fmt_ptr + 1, args, &count) + 1;
+			if (*(fmt_ptr + 1) == '%')
+				count += write(1, fmt_ptr++, 1);
+			else
+				fmt_ptr += ft_printf_format(fmt_ptr + 1, args, &count) + 1;
 		}
 		else
-		{
 			count += write(1, fmt_ptr, 1);
-		}
 		fmt_ptr++;
 	}
 	va_end(args);
