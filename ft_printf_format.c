@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_format.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dmitrypopov <dmitrypopov@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 13:42:41 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/08 16:21:24 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/10 14:47:57 by dmitrypopov      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,7 @@ int	ft_printf_format(char *fmt_ptr, va_list args, int *count)
 		*count += ft_process_string_type(args, &flags);
 	else if (*fmt_ptr == 'x' || *fmt_ptr == 'X')
 		*count += ft_process_hex_type(args, &flags, ft_isupper(*fmt_ptr));
+	else if (*fmt_ptr == 'p')
+		*count += ft_process_pointer_type(args, &flags);
 	return (shift);
 }
