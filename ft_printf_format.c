@@ -6,7 +6,7 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 13:42:41 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/11 19:12:52 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/11 19:49:25 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ int	ft_printf_format(char *fmt_ptr, va_list args, int *count)
 	if (*fmt_ptr == '.')
 		flags.precision = ft_process_precision(&fmt_ptr, &flags.zero_flag,
 				&shift);
-	ft_lstclear(&flags.result, &free);
+	if (flags.result)
+		ft_lstclear(&flags.result, &free);
 	if (ft_process_types(&fmt_ptr, &flags, args, count) == -1)
 	{
 		write(2, "format error\n", 13);

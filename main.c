@@ -6,7 +6,7 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 14:33:55 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/11 19:13:48 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/11 20:03:57 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	main(void)
 {
-	printf("%d\n", ft_printf("%c %d %-4ss\n", 'c', 5, "lol"));
-	printf("================\n");
-	printf("%d\n", printf("%c %d %-4s\n", 'c', 5, "lol"));
+	//printf("%d\n", ft_printf("%c %d %-4ss\n", 'c', 5, "lol"));
+	//printf("================\n");
+	//printf("%d\n", printf("%c %d %-4s\n", 'c', 5, "lol"));
 	// printf("%-0202.123d", 42);
 	// printf("%- 4d\n", 10);
 	// printf("%-4d\n", 10);
@@ -56,8 +56,14 @@ int	main(void)
 	// printf("%d\n", printf("%c %d %s %u %% %-100p\n", 'c', 5, "lol", -200, NULL));
 
 	//printf("%d\n", ft_printf("%5%"));
-	printf("\n================\n");
+	//printf("\n================\n");
 	//printf("%d\n", printf("%5%"));
+
+	// i
+	printf("%d\n", ft_printf("%10.5i\n", -216));
+	printf("================\n");
+	printf("%d\n", printf("%10.5i\n", -216));
+	
 
 	return (0);
 }
