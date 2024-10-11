@@ -6,7 +6,7 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 13:12:22 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/08 18:32:45 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/11 19:00:24 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ int	ft_process_decimal_type(va_list args, t_flags *flags)
 		flags->sign = "-";
 		decimal_num *= -1;
 	}
-	ft_add_strtolst(&flags->result, ft_itoa(decimal_num), &ft_lstadd_back);
+	if (ft_add_strtolst(&flags->result, ft_itoa(decimal_num),
+			&ft_lstadd_back) == -1)
+		return (-1);
 	count = ft_format_output_and_print(flags);
 	return (count);
 }

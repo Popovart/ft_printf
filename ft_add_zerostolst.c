@@ -6,7 +6,7 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 16:24:23 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/08 18:31:37 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/11 18:52:44 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int	ft_add_zerostolst(t_list **lst, int flagnum, char *sign)
 	{
 		node = ft_lstnew(ft_strdup("0"));
 		if (!node)
-			return (ft_lstclear(lst, &free), 0);
+			return (-1);
 		ft_lstadd_front(lst, node);
 	}
-	return (1);
+	return (0);
 }

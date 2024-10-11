@@ -17,13 +17,16 @@ LIBFT = $(LIBFT_DIR)/libft.a
 
 HEADER = ft_printf.h
 
-all: $(LIBFT) $(NAME)
+all: $(NAME)
+
+bonus: all
+
+$(NAME): $(LIBFT) $(OBJ) 
+	cp $(LIBFT) $(NAME)
+	ar rc $(NAME) $(OBJ)
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
-
-$(NAME): $(OBJ) $(LIBFT)
-	ar rc $(NAME) $(OBJ)
 
 %.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) -I . -c $< -o $@
@@ -42,4 +45,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re

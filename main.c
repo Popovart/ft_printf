@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmitrypopov <dmitrypopov@student.42.fr>    +#+  +:+       +#+        */
+/*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 14:33:55 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/11 15:19:05 by dmitrypopov      ###   ########.fr       */
+/*   Updated: 2024/10/11 19:13:48 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	main(void)
 {
-	//printf("%d\n", ft_printf("%c %d %-4s\n", 'c', 5, "lol"));
-	//printf("================\n");
-	//printf("%d\n", printf("%c %d %-4s\n", 'c', 5, "lol"));
+	printf("%d\n", ft_printf("%c %d %-4ss\n", 'c', 5, "lol"));
+	printf("================\n");
+	printf("%d\n", printf("%c %d %-4s\n", 'c', 5, "lol"));
 	// printf("%-0202.123d", 42);
 	// printf("%- 4d\n", 10);
 	// printf("%-4d\n", 10);
@@ -51,9 +51,13 @@ int	main(void)
 	//printf("%d\n", printf("%25p\n", (void *)&x));
 	
 
-	printf("%d\n", ft_printf("%100.12s\n", "lol kek cheburek puk muk lol"));
-	printf("================\n");
-	printf("%d\n", printf("%c %d %s %u %% %-100p\n", 'c', 5, "lol", -200, NULL));
+	// printf("%d\n", ft_printf("%100.12s\n", "lol kek cheburek puk muk lol"));
+	// printf("================\n");
+	// printf("%d\n", printf("%c %d %s %u %% %-100p\n", 'c', 5, "lol", -200, NULL));
+
+	//printf("%d\n", ft_printf("%5%"));
+	printf("\n================\n");
+	//printf("%d\n", printf("%5%"));
 
 	return (0);
 }
