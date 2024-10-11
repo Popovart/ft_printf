@@ -6,7 +6,7 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 14:33:55 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/11 20:29:54 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/11 20:42:50 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,11 @@ int	main(void)
 	// i
 	//printf("%d\n", ft_printf("%10.5i\n", -216)); // OK
 	//printf("%d\n", ft_printf("%07i\n", -54)); // OK
-	printf("%d\n", ft_printf("%.0i\n", 0)); // 
+	//printf("%d\n", ft_printf("%.0i\n", 0)); // OK
 	printf("================\n");
 	//printf("%d\n", printf("%10.5i\n", -216)); // OK
 	//printf("%d\n", printf("%07i\n", -54)); // OK
-	printf("%d\n", printf("%.0i\n", 0)); // 
+	//printf("%d\n", printf("%.0i\n", 0)); // OK
 
 	return (0);
 }

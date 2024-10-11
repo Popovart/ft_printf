@@ -6,12 +6,14 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 16:39:48 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/11 20:24:57 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/11 20:36:21 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+
+// I need to devide ft_add_zerostolst to two fuctions: for precision and for min_width
 int	ft_format_output_and_print(t_flags *flags)
 {
 	int	count;
