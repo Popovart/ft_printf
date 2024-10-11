@@ -6,20 +6,20 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 19:45:05 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/11 20:03:03 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/11 20:24:35 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+# include "libft/libft.h"
 # include "stdarg.h"
 # include "stddef.h"
 # include "stdio.h"
 # include "unistd.h"
 # include <stdint.h>
 # include <stdlib.h>
-# include "libft/libft.h"
 
 typedef struct s_flags
 {
@@ -55,7 +55,8 @@ int					ft_process_string_type(va_list args, t_flags *flags);
 int					ft_process_hex_type(va_list args, t_flags *flags,
 						const int is_upper);
 int					ft_add_signtolst(t_list **lst, char *sign);
-int					ft_add_zerostolst(t_list **lst, int flagnum);
+int					ft_add_zerostolst(t_list **lst, int flagnum, int omit_minus,
+						char *sign);
 int					ft_format_output_and_print(t_flags *flags);
 int					ft_add_hextolst(t_list **lst, uintptr_t num,
 						const int is_upper);
@@ -63,8 +64,8 @@ int					ft_process_pointer_type(va_list args, t_flags *flags);
 int					ft_process_unsdecimal_type(va_list args, t_flags *flags);
 char				*ft_utoa(unsigned int n);
 
-//void				ft_putnbr_fd(int n, int fd);
-//int					ft_isdigit(int c);
+// void				ft_putnbr_fd(int n, int fd);
+// int					ft_isdigit(int c);
 // void				ft_putstr_fd(char *s, int fd);
 // size_t				ft_strlen(const char *str);
 // t_list				*ft_lstnew(void *content);

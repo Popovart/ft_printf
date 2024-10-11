@@ -6,20 +6,20 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 16:24:23 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/11 20:02:40 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/11 20:23:29 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_add_zerostolst(t_list **lst, int flagnum)
+int	ft_add_zerostolst(t_list **lst, int flagnum, int omit_minus, char *sign)
 {
 	t_list	*node;
 	int		lst_len;
 
 	lst_len = ft_lstsize(*lst);
-	// if (sign[0] == '-')
-	// 	lst_len++;
+	if (omit_minus && sign[0] == '-')
+		lst_len++;
 	flagnum = ft_recalculate_flagnum(flagnum, lst_len);
 	while (flagnum-- > 0)
 	{
