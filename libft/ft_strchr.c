@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_process_precision.c                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmitrypopov <dmitrypopov@student.42.fr>    +#+  +:+       +#+        */
+/*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 13:21:21 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/11 15:17:40 by dmitrypopov      ###   ########.fr       */
+/*   Created: 2024/09/23 15:14:24 by dmitrii           #+#    #+#             */
+/*   Updated: 2024/09/28 16:55:57 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_process_precision(char **fmt_ptr, int *zero_flag, int *shift)
+char	*ft_strchr(const char *s, int c)
 {
-	int	precision;
-	
-	(*fmt_ptr)++;
-	(*shift)++;
-	precision = ft_extract_num(fmt_ptr, shift);
-	*zero_flag = 0;
-	return (precision);
+	while (*s)
+	{
+		if (*s == (unsigned char)c)
+			return ((char *)s);
+		s++;
+	}
+	if ((unsigned char)c == '\0')
+		return ((char *)s);
+	return (NULL);
 }

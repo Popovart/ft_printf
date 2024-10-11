@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_format.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dmitrypopov <dmitrypopov@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 13:42:41 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/10 20:52:38 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/11 15:17:06 by dmitrypopov      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,7 @@ int	ft_printf_format(char *fmt_ptr, va_list args, int *count)
 	if (ft_isdigit(*fmt_ptr))
 		flags.min_width = ft_extract_num(&fmt_ptr, &shift);
 	if (*fmt_ptr == '.')
-	{
-		fmt_ptr++;
-		shift++;
-		flags.precision = ft_process_precision(&fmt_ptr, &flags.zero_flag,
-				&shift);
-	}
+		flags.precision = ft_process_precision(&fmt_ptr, &flags.zero_flag, &shift);
 	if (*fmt_ptr == 'd' || *fmt_ptr == 'i')
 		*count += ft_process_decimal_type(args, &flags);
 	else if (*fmt_ptr == 'c')

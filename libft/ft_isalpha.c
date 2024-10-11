@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/27 17:22:29 by dmitrypopov       #+#    #+#             */
-/*   Updated: 2024/10/07 16:16:09 by dmitrii          ###   ########.fr       */
+/*   Created: 2024/09/19 08:02:56 by dmitrii           #+#    #+#             */
+/*   Updated: 2024/09/21 18:22:18 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+int	ft_isalpha(int c)
 {
-	t_list	*temp_node;
-
-	while (*lst != NULL)
-	{
-		temp_node = *lst;
-		*lst = (*lst)->next;
-		ft_lstdelone(temp_node, del);
-	}
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		return (1);
+	return (0);
 }

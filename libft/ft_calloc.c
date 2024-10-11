@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/27 17:34:22 by dmitrypopov       #+#    #+#             */
-/*   Updated: 2024/10/07 16:16:13 by dmitrii          ###   ########.fr       */
+/*   Created: 2024/09/23 16:29:13 by dmitrii           #+#    #+#             */
+/*   Updated: 2024/09/24 15:53:32 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	if (!lst)
-		return ;
-	while (lst != NULL)
+	size_t			i;
+	unsigned char	*dest;
+
+	if (nmemb != 0 && size != 0 && nmemb > ((size_t)(-1)) / size)
+		return (NULL);
+	dest = (void *)malloc(size * nmemb);
+	if (!dest)
+		return (NULL);
+	i = 0;
+	while (i < (size * nmemb))
 	{
-		f(lst->content);
-		lst = lst->next;
+		dest[i] = 0;
+		i++;
 	}
+	return ((void *)dest);
 }

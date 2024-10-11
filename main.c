@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dmitrypopov <dmitrypopov@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 14:33:55 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/11 12:54:37 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/11 15:19:05 by dmitrypopov      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,9 @@ int	main(void)
 	//printf("%d\n", printf("%25p\n", (void *)&x));
 	
 
-	printf("%d\n", ft_printf("%c %d %s %u %% %-100p\n", 'c', 5, "lol", -200, NULL));
+	printf("%d\n", ft_printf("%100.12s\n", "lol kek cheburek puk muk lol"));
 	printf("================\n");
 	printf("%d\n", printf("%c %d %s %u %% %-100p\n", 'c', 5, "lol", -200, NULL));
-
 
 	return (0);
 }

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dmitrypopov <dmitrypopov@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 16:28:52 by dmitrypopov       #+#    #+#             */
-/*   Updated: 2024/10/05 19:07:06 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/09/27 16:36:49 by dmitrypopov      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 void	ft_putnbr_rec_fd(int n, int fd)
 {
@@ -46,5 +46,4 @@ void	ft_putnbr_fd(int n, int fd)
 		n = -n;
 	}
 	ft_putnbr_rec_fd(n, fd);
-	return ;
 }

@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_process_precision.c                             :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmitrypopov <dmitrypopov@student.42.fr>    +#+  +:+       +#+        */
+/*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 13:21:21 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/11 15:17:40 by dmitrypopov      ###   ########.fr       */
+/*   Created: 2024/09/21 17:52:19 by dmitrii           #+#    #+#             */
+/*   Updated: 2024/09/28 14:10:34 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_process_precision(char **fmt_ptr, int *zero_flag, int *shift)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dsize)
 {
-	int	precision;
-	
-	(*fmt_ptr)++;
-	(*shift)++;
-	precision = ft_extract_num(fmt_ptr, shift);
-	*zero_flag = 0;
-	return (precision);
+	size_t	i;
+
+	i = 0;
+	if (dsize > 0)
+	{
+		while (i < dsize - 1 && src[i])
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
+	}
+	while (src[i])
+		i++;
+	return (i);
 }

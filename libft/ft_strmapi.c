@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_process_unsdecimal_type.c                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmitrypopov <dmitrypopov@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/10 20:46:17 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/11 14:38:19 by dmitrypopov      ###   ########.fr       */
+/*   Created: 2024/09/27 16:01:21 by dmitrypopov       #+#    #+#             */
+/*   Updated: 2024/09/27 16:11:03 by dmitrypopov      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_process_unsdecimal_type(va_list args, t_flags *flags)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int				count;
-	unsigned int	ans_num;
+	char	*result;
+	size_t	len;
+	size_t	i;
 
-	ans_num = va_arg(args, unsigned int);
-	ft_add_strtolst(&flags->result, ft_utoa(ans_num), &ft_lstadd_back);
-	count = ft_format_output_and_print(flags);
-	return (count);
+	if (!s || !f)
+		return (NULL);
+	len = ft_strlen(s);
+	result = (char *)malloc((len + 1) * sizeof(char));
+	if (!result)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		result[i] = f(i, s[i]);
+		i++;
+	}
+	result[i] = '\0';
+	return (result);
 }
