@@ -6,19 +6,11 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 13:42:41 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/11 19:49:25 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/11 21:29:43 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	ft_process_char_type(va_list args)
-{
-	char	c;
-
-	c = va_arg(args, int);
-	return (write(1, &c, 1));
-}
 
 int	ft_isupper(const int c)
 {
@@ -35,7 +27,7 @@ int	ft_process_types(char **fmt_ptr, t_flags *flags, va_list args, int *count)
 	if (**fmt_ptr == 'd' || **fmt_ptr == 'i')
 		i += ft_process_decimal_type(args, flags);
 	else if (**fmt_ptr == 'c')
-		i += ft_process_char_type(args);
+		i += ft_process_char_type(args, flags);
 	else if (**fmt_ptr == 's')
 		i += ft_process_string_type(args, flags);
 	else if (**fmt_ptr == 'x' || **fmt_ptr == 'X')

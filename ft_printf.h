@@ -6,7 +6,7 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 19:45:05 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/11 20:24:35 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/11 21:29:22 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int					ft_add_strtolst(t_list **lst, char *s,
 						void (*add_func)(t_list **, t_list *));
 int					ft_print_type_with_align(t_flags *flags);
 int					ft_process_string_type(va_list args, t_flags *flags);
+int					ft_process_char_type(va_list args, t_flags *flags);
 int					ft_process_hex_type(va_list args, t_flags *flags,
 						const int is_upper);
 int					ft_add_signtolst(t_list **lst, char *sign);
