@@ -6,7 +6,7 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 19:45:05 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/11 21:29:22 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/12 18:57:34 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ int					ft_add_hextolst(t_list **lst, uintptr_t num,
 int					ft_process_pointer_type(va_list args, t_flags *flags);
 int					ft_process_unsdecimal_type(va_list args, t_flags *flags);
 char				*ft_utoa(unsigned int n);
+int					ft_add_chartolst(t_list **lst, char c,
+						void (*add_func)(t_list **, t_list *));
 
 // void				ft_putnbr_fd(int n, int fd);
 // int					ft_isdigit(int c);

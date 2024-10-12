@@ -6,7 +6,7 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 14:33:55 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/11 21:23:22 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/12 18:46:45 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,11 @@ int	main(void)
 
 
 	// c
-	printf("%d\n", ft_printf("%-20c\n", 'x'));
+	//printf("%d\n", ft_printf("%-20c\n", 'x'));
+	printf("%d\n", ft_printf("{%3c}", '\0'));
 	printf("================\n");
-	printf("%d\n", printf("%-20c\n", 'x'));
+	// printf("%d\n", printf("%-20c\n", 'x'));
+	printf("%d\n", printf("{%3c}", '\0'));
 	
 	return (0);
 }

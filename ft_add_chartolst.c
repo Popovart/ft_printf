@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_process_char_type.c                             :+:      :+:    :+:   */
+/*   ft_add_chartolst.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/11 21:24:51 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/12 19:03:31 by dmitrii          ###   ########.fr       */
+/*   Created: 2024/10/12 18:52:17 by dmitrii           #+#    #+#             */
+/*   Updated: 2024/10/12 18:57:52 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_process_char_type(va_list args, t_flags *flags)
+int	ft_add_chartolst(t_list **lst, char c, void (*add_func)(t_list **,
+			t_list *))
 {
-	int	c;
-	int	count;
+	t_list	*node;
 
-	c = va_arg(args, int);
-	if (ft_add_chartolst(&flags->result, c, &ft_lstadd_back) == -1)
+	node = ft_lstnew(&c);
+	if (!node)
 		return (-1);
-	flags->min_width = ft_recalculate_flagnum(flags->min_width,
-			ft_lstsize(flags->result));
-	count = ft_print_type_with_align(flags);
-	return (count);
+	add_func(lst, node);
+	return (0);
 }
