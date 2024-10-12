@@ -6,11 +6,12 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 14:33:55 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/12 18:46:45 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/12 19:09:35 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "limits.h"
 
 int	main(void)
 {
@@ -83,11 +84,17 @@ int	main(void)
 
 
 	// c
-	//printf("%d\n", ft_printf("%-20c\n", 'x'));
-	printf("%d\n", ft_printf("{%3c}", '\0'));
+	// printf("%d\n", ft_printf("%-20c\n", 'x')); // OK
+	// printf("%d\n", ft_printf("{%3c}", '\0')); // OK
 	printf("================\n");
-	// printf("%d\n", printf("%-20c\n", 'x'));
-	printf("%d\n", printf("{%3c}", '\0'));
+	// printf("%d\n", printf("%-20c\n", 'x')); // OK
+	// printf("%d\n", printf("{%3c}", '\0')); // OK
+	
+
+	// d
+	printf("%d\n", ft_printf("%d\n", INT_MIN)); // NEOK
+	printf("================\n");
+	printf("%d\n", printf("%d\n", INT_MIN)); // NEOK 
 	
 	return (0);
 }
