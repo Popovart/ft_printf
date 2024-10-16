@@ -6,7 +6,7 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 13:16:00 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/11 18:15:08 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/16 11:54:31 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,21 @@ void	init_flags(t_flags *flags)
 	flags->result = NULL;
 }
 
-void	print_flags(t_flags *flags)
-{
-	printf("Flags structure:\n");
-	printf("minus_flag: %d\n", flags->minus_flag);
-	printf("zero_flag: %d\n", flags->zero_flag);
-	printf("min_width: %d\n", flags->min_width);
-	printf("sign: %s\n", flags->sign ? flags->sign : "N");
-	printf("precision: %d\n", flags->precision);
-	printf("hash_flag: %d\n", flags->hash_flag);
-	printf("result list\n");
-	fflush(stdout);
-	ft_lstiter(flags->result, ft_putlstchar);
-	printf("lst size: %d\n", ft_lstsize(flags->result));
-	printf("\n");
-}
+// void	print_flags(t_flags *flags)
+// {
+// 	printf("Flags structure:\n");
+// 	printf("minus_flag: %d\n", flags->minus_flag);
+// 	printf("zero_flag: %d\n", flags->zero_flag);
+// 	printf("min_width: %d\n", flags->min_width);
+// 	printf("sign: %s\n", flags->sign ? flags->sign : "N");
+// 	printf("precision: %d\n", flags->precision);
+// 	printf("hash_flag: %d\n", flags->hash_flag);
+// 	printf("result list\n");
+// 	fflush(stdout);
+// 	ft_lstiter(flags->result, ft_putlstchar);
+// 	printf("lst size: %d\n", ft_lstsize(flags->result));
+// 	printf("\n");
+// }
 
 void	ft_process_flags(char **fmt_ptr, t_flags *flags, int *shift)
 {

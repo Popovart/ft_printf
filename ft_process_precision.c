@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_process_precision.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmitrypopov <dmitrypopov@student.42.fr>    +#+  +:+       +#+        */
+/*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 13:21:21 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/11 15:17:40 by dmitrypopov      ###   ########.fr       */
+/*   Updated: 2024/10/16 12:01:47 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_process_precision(char **fmt_ptr, int *zero_flag, int *shift)
 {
 	int	precision;
-	
+
 	(*fmt_ptr)++;
 	(*shift)++;
 	precision = ft_extract_num(fmt_ptr, shift);
