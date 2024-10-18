@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_extract_num.c                                   :+:      :+:    :+:   */
+/*   ft_istype.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 13:17:57 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/18 11:25:39 by dmitrii          ###   ########.fr       */
+/*   Created: 2024/10/18 10:47:06 by dmitrii           #+#    #+#             */
+/*   Updated: 2024/10/18 10:47:51 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_extract_num(char **fmt_ptr, int *shift)
+int	ft_istype(char c)
 {
-	int	flag_num;
+	int	i;
 
-	flag_num = 0;
-	while (ft_isdigit(**fmt_ptr))
+	i = 0;
+	while (TYPES[i])
 	{
-		flag_num = flag_num * 10 + (**fmt_ptr - '0');
-		(*shift)++;
-		(*fmt_ptr)++;
+		if (TYPES[i++] == c)
+			return (1);
 	}
-	return (flag_num);
+	return (0);
 }

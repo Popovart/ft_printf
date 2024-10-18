@@ -6,7 +6,7 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 19:45:05 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/12 18:57:34 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/18 11:10:05 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include "unistd.h"
 # include <stdint.h>
 # include <stdlib.h>
+
+# define TYPES "cspdiuxX"
 
 typedef struct s_flags
 {
@@ -44,7 +46,7 @@ void				print_flags(t_flags *flags);
 int					ft_isflag(char c);
 int					ft_process_precision(char **fmt_ptr, int *zero_flag,
 						int *shift);
-void				ft_process_flags(char **fmt_ptr, t_flags *flags,
+int					ft_process_flags(char **fmt_ptr, t_flags *flags,
 						int *shift);
 int					ft_recalculate_flagnum(int flagnum, const int num_len);
 int					ft_process_decimal_type(va_list args, t_flags *flags);
@@ -66,6 +68,7 @@ int					ft_process_unsdecimal_type(va_list args, t_flags *flags);
 char				*ft_utoa(unsigned int n);
 int					ft_add_chartolst(t_list **lst, char c,
 						void (*add_func)(t_list **, t_list *));
+int					ft_istype(char c);
 
 // void				ft_putnbr_fd(int n, int fd);
 // int					ft_isdigit(int c);
