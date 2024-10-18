@@ -6,7 +6,7 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 14:48:12 by dmitrypopov       #+#    #+#             */
-/*   Updated: 2024/10/11 10:46:44 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/18 13:59:43 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_process_pointer_type(va_list args, t_flags *flags)
 
 	ptr = va_arg(args, void *);
 	if (!ptr)
-		ft_add_strtolst(&flags->result, ft_strdup("(nil)"), &ft_lstadd_back);
+		ft_add_strtolst(&flags->result, "(nil)", &ft_lstadd_back);
 	else
 	{
 		if (ft_add_hextolst(&flags->result, (uintptr_t)ptr, 0) == -1)

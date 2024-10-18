@@ -6,7 +6,7 @@
 /*   By: dmitrii <dmitrii@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 13:42:41 by dmitrii           #+#    #+#             */
-/*   Updated: 2024/10/18 13:02:02 by dmitrii          ###   ########.fr       */
+/*   Updated: 2024/10/18 13:04:27 by dmitrii          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,11 @@ int	ft_printf_format(char *fmt_ptr, va_list args, int *count)
 		return (-1);
 	if (ft_process_types(&fmt_ptr, &flags, args, count) == -1)
 	{
-		// if (flags.result)
-		// 	ft_lstclear(&(flags.result), &free);
+		if (flags.result)
+			ft_lstclear(&(flags.result), &free);
 		return (-1);
 	}
-	// if (flags.result)
-	// 	ft_lstclear(&(flags.result), &free);
+	if (flags.result)
+		ft_lstclear(&(flags.result), &free);
 	return (shift);
 }
